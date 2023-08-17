@@ -3,16 +3,14 @@ package springapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import springapp.entity.User;
 import springapp.service.UserService;
 
 import java.util.List;
 
 @Controller
+//@RequestMapping ("/")
 public class UserControl {
 
     private final UserService userService;
@@ -22,10 +20,10 @@ public class UserControl {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/")
+    @GetMapping("/")
     public String getAllUsers(Model model) {
         List<User> allUsers = userService.getAllUsers();
-        model.addAttribute("allusr", allUsers);
+        model.addAttribute("allusrs", allUsers);
         return "all-users";
     }
 
@@ -43,7 +41,7 @@ public class UserControl {
     @GetMapping("/update-user/{id}")
     public String fillUserForm(@PathVariable("id") int id, Model model) {
 
-        model.addAttribute("usr", userService.getUserById(id));
+        model.addAttribute("user", userService.getUserById(id));
         return "update-user";
     }
 

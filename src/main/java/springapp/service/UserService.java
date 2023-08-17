@@ -11,5 +11,5 @@ public interface UserService {
 
     void saveUser(User user);
 
-    public void deleteUser(int id);
+    void deleteUser(int id);
 }

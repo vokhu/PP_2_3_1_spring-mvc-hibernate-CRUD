@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>allUsers</title>
 </head>
 <body>
-<div th:swich="${allusr}">
+<div th:swich="${allusrs}">
     <h2 th:case="null"> Empty list of users</h2>
     <div th:case="*">
         <table>
@@ -18,14 +18,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="usr : ${allusr}">
-                <td th:text="${usr.getId}"></td>
-                <td th:text="${usr.getFirstname}"></td>
-                <td th:text="${usr.getLastname}"></td>
-                <td th:text="${usr.getAge}"></td>
+            <tr th:each="user : ${allusrs}">
+                <td th:text="${user.getId()}"></td>
+                <td th:text="${user.getFirstname()}"></td>
+                <td th:text="${user.getLastname()}"></td>
+                <td th:text="${user.getAge()}"></td>
 
-                <td><a th:href="@{update-user/{id}(id=${usr.getId})}">Edit</a></td>
-                <td><a th:href="@{delete-user/{id}(id=${usr.getId})}">Delete</a></td>
+                <td><a th:href="@{update-user/{id}(id=${user.getId})}">Edit</a></td>
+                <td><a th:href="@{delete-user/{id}(id=${user.getId})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
