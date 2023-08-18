@@ -15,7 +15,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.Properties;
 
@@ -31,7 +30,8 @@ public class DataBaseConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        DriverManagerDataSource
+         dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName(env.getRequiredProperty("db.driver"));
         dataSource.setUrl(env.getRequiredProperty("db.url"));
@@ -59,12 +59,6 @@ public class DataBaseConfig {
         em.setJpaProperties(hibernateProperties());
         return em;
     }
- /*   public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
-        em.setJpaProperties(hibernateProperties());
-        return em;
-    }*/
 
     @Bean
     public PlatformTransactionManager transactionManager() {

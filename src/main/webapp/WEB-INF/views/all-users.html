@@ -20,8 +20,8 @@
             <tbody>
             <tr th:each="user : ${allusrs}">
                 <td th:text="${user.getId()}"></td>
-                <td th:text="${user.getFirstname()}"></td>
-                <td th:text="${user.getLastname()}"></td>
+                <td th:text="${user.getFirstName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
                 <td th:text="${user.getAge()}"></td>
 
                 <td><a th:href="@{update-user/{id}(id=${user.getId})}">Edit</a></td>

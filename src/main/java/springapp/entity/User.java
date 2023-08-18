@@ -11,19 +11,19 @@ public class User {
     @Column (name = "id")
     private int id;
     @Column (name = "firstName")
-    private String firstname;
+    private String firstName;
     @Column (name = "lastName")
-    private String lastname;
+    private String lastName;
     @Column (name = "age")
     private int age;
 
     public User() {
     }
 
-    public User(int id, String firstname, String lastname, int age) {
+    public User(int id, String firstName, String lastName, int age) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
     }
     public int getId() {
@@ -34,20 +34,20 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public int getAge() {

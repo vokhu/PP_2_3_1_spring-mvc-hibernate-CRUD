@@ -10,7 +10,6 @@ import springapp.service.UserService;
 import java.util.List;
 
 @Controller
-//@RequestMapping ("/")
 public class UserControl {
 
     private final UserService userService;
@@ -33,15 +32,15 @@ public class UserControl {
     }
 
     @PostMapping("/create-user")
-    public String createUser(User user) {
+    public String createUser( User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 
     @GetMapping("/update-user/{id}")
     public String fillUserForm(@PathVariable("id") int id, Model model) {
-
-        model.addAttribute("user", userService.getUserById(id));
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
         return "update-user";
     }
 

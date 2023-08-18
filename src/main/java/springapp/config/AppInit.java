@@ -1,17 +1,15 @@
 package springapp.config;
 
-/*import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;*/
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import org.hibernate.Hibernate;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return null/*new Class[] {DataBaseConfig.class}*/;
     }
 
     protected Class<?>[] getServletConfigClasses() {

@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional//(readOnly = true)
+@Transactional
 public class UserServiceImpl implements springapp.service.UserService {
 
     private final UserDAO userDAO;
@@ -20,19 +20,23 @@ public class UserServiceImpl implements springapp.service.UserService {
     }
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
 
     @Override
+    @Transactional
     public User getUserById(int id) {
         return userDAO.getUserById(id);
     }
 
+    @Transactional
     public void saveUser(User user) {
         userDAO.save(user);
     }
 
+    @Transactional
     public void deleteUser(int id) {
         userDAO.deleteUser(id);
     }
